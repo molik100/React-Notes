@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Notes</title>
+    <link rel="stylesheet" href="prism.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="prism.js"></script>
+  </head>
+  <body>
+    <ol>
+      <li>
+        <h2>JSX</h2>
+        <pre><code class="language-js">//JSX means Javascript XML.
+// It is 96% HTML and Rest Javasript.
+// Javasript Expression are written under { Expression } ( Curly Braces ). 
+// Expression is that which return any Value.
+// All HTML attributes and css styles in JSX are write using PascalCase. 
+
+// JSX Expression -: 
+<xmp><h1>Hello Molik , My age is {20 - 1}</h1></xmp>
+// Some Changes from HTML -> JSX
+    // 1) class -> className.
+    // 2) for -> htmlFor.
+    // 3) All self closing tags closed using /> rathar than >.
+</code></pre>
+      </li>
+
+      <li>
+        <h2>React Fragment</h2>
+        <pre><code class="language-js">// We can return only one element from Functional Component.
+// So either we use a div to enclose all code or using React Fragments.
+// React Fragments does not add extra element like div.
+
+// React Fragemnt -:
+<xmp><React.Fragment>
+    <h1>Hello</h1>
+    <h2>Hello Again</h2> 
+</React.Fragment></xmp>
+// React.Fragment written is Optional , It is same as -: 
+<xmp><>
+    <h1>Hello</h1>
+    <h2>Hello Again</h2> 
+</></xmp></code></pre>
+      </li>
+
+
+      <li>
+        <h2>Css Style</h2>
+        <pre><code class="language-js">// We can add styles through className or,
+// We can use Javascript Object to add inline styles.
+// Property name must be in PascalCase.
+// Simple values is treated as in pixels ( px ).
+// Inline Styles -:
+// 🤷‍♀️ It is style not styl e.
+<xmp><h1 styl e = {fontSize : 12 or any Javascript Object}>Hello</h1>
+<h2>Hello Again</h2> </xmp></code></pre>
+      </li>
+
+      <li>
+        <h2>Components</h2>
+        <pre><code class="language-js">// We can divide our website into small peices called Components.
+// We have Class and Functional Components.
+// Component Name must Start with Capital Letter as Convention.
+// We can also pass attributes ( Called Props ) like in HTML.
+// Functional Components -: 
+    // Function Return JSX.
+    // Use it as -:
+<xmp><FunctionComponentName propName="Molik" /></xmp>
+
+// Component -:
+<xmp>function NavBar(props){
+    return(
+        <h1>Hello Ji</h1>
+    )
+}</xmp>
+</code></pre>
+      </li>
+
+      <li>
+        <h2>Props</h2>
+        <pre><code class="language-js">// Props is like attributes in HTML and parameters in Javascript.
+// It helps to pass data to Components.
+// We can pass anything (functions , state etc ) using props.
+
+// Passing Props -:
+<xmp><FunctionComponentName propName="propvalue" /></xmp>
+
+// Accept Props -:
+// Here, props is a Javascript Object.
+<xmp>function NavBar(props){
+    return(
+        // Using Props -: 
+        <h1>Hello {props.propName}</h1>
+    )
+}</xmp></code></pre>
+      </li>
+
+      <li>
+        <h2>map() and key prop</h2>
+        <pre><code class="language-js">// When we use .map() method then it is necessary to pass ,
+// key prop ( Exact key ) to the returning element from .map().
+// key is anything unique. 
+// Keys are essential for React to be able to keep track of each ,
+// element that is being iterated over with the .map() function.
+
+<xmp>myArr.map((elem , index) => {
+    return <h1 key={index}>Hello</h1>
+})</xmp></code></pre>
+      </li>
+
+
+      <li>
+        <h2>map() and key prop</h2>
+        <pre><code class="language-js">// When we use .map() method then it is necessary to pass ,
+// key prop ( Exact key ) to the returning element from .map().
+// key is anything unique. 
+// Keys are essential for React to be able to keep track of each ,
+// element that is being iterated over with the .map() function.
+
+<xmp>myArr.map((elem , index) => {
+    return <h1 key={index}>Hello</h1>
+})</xmp></code></pre>
+      </li>
+
+      <li>
+        <h2>Event Handling</h2>
+        <pre><code class="language-js">// We can attach events on JSX elements only.
+// By adding props ( Like onClick etc ).
+
+// Prop name Must be camelCase.
+// Event Handling -: 
+function handleClick(){
+    console.log("Button Clicked !")
+}
+<xmp><button onClick={handleClick}>Click</button></xmp>
+
+// Passing Arguments -:
+    // 1) Way
+    // Use function () => handleClick(agr1) (Or use simple function ) inside ,
+    // onClick={} ( It is hard to write in notes hope u understand).
+    <xmp>< button onClick={}</button>}>Click< /button></xmp>
+
+    // 2 Way
+    // Use function (){this.handleClick.bind(this , arg1))} inside onClick={}
+    <xmp>< button onClick={}</button>}>Click< /button></xmp>
+</code></pre>
+      </li>
+    </ol>
+
+  </body>
+</html>
