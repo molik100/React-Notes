@@ -111,7 +111,6 @@
 })</xmp></code></pre>
       </li>
 
-
       <li>
         <h2>map() and key prop</h2>
         <pre><code class="language-js">// When we use .map() method then it is necessary to pass ,
@@ -131,6 +130,7 @@
 // By adding props ( Like onClick etc ).
 
 // Prop name Must be camelCase.
+// As a Naming Convention event function start with hanlde.
 // Event Handling -: 
 function handleClick(){
     console.log("Button Clicked !")
@@ -144,14 +144,92 @@ function handleClick(){
     <xmp>< button onClick={}</button>}>Click< /button></xmp>
 
     // 2 Way
-    // Use function (){this.handleClick.bind(this , arg1))} inside onClick={}
+    // Use bind() (){this.handleClick.bind(this , arg1))} inside onClick={}
     <xmp>< button onClick={}</button>}>Click< /button></xmp>
 </code></pre>
       </li>
-    </ol>
 
-    <ul>
-      <li></li>
-    </ul>
+      <li>
+        <h2>useState() Hook and state</h2>
+        <pre><code class="language-js">// state allow u to change certain value in component.
+// When state changes , Components re-renders ( Which makes React Powerful without Page Loads ).
+
+import React , {useState} from 'react'
+
+const [count , setCount] = useState(InitialValue) // Or React.useState()
+// InitialValue is of any DataType.
+// We cannot directly change the state variable ( Like here count ) ,
+// We need to use setter function ( Like here setCount ) to change state variable.
+// As a Naming Convention setter function start with set. 
+
+// Change State -:
+    setCount( anyValue )  // It enhances to re-render the component.</code></pre>
+      </li>
+
+      <li>
+        <h2>useContext() Hook</h2>
+        <pre><code class="language-js">// 1) What is context and why we need it ?
+// Ans - It us used to pass directly to any child in a hieraracly, 
+// without this we need to pass data in order wise and it is so difficuilt like -:
+
+// Parent -> Child1 -> Child2 -> Child3  , We need to pass Data Parent -> Child3 
+// without context we need to passs data to Child1 then Child2 and then Child3
+
+// To use context we need to perform 3 Steps -:
+    // 1) createContext() ( In Parent )
+    // 2) Producer ( In Parent )
+    // 3) Consumer ( In Child )
+
+// In Parent create Context-:
+const fName = createContext( defaultValue )
+function App(){
+    const [count , setCount] = useState(0)
+    return (
+        // value is important ( Exact ) and b/w this Provider all have accessing fName Context.
+        // To use [count , setCount] ,  we can destructure it later.
+        <xmp><fName.Provider value={[count , setCount]}>
+            <Child3 />
+        </fName.Provider></xmp>
+    )
+}
+export {fName}
+    
+// In Child Access Context -:
+import {useContext} from react
+import {fName} from 'whatever'
+
+function Child3(){
+    const [count , setCount] = useContext(fName)
+    return(
+        // Here use it and Enjoy.
+    )
+}
+</code></pre>
+      </li>
+
+      <li>
+        <h2>useEffect Hook</h2>
+        <pre><code class="language-js">// It is used to perform extra tasks ( Called Side-Effects ).
+// Side effects means reach into the outside world. Like fetching data from an API ,
+// or working with the DOM.
+
+// useEffect take 1st parameter as Callback Function ( Called effect ) and 2nd parameter 
+// ( Optional ) array.
+
+// Callback function runs again re-rendering.
+// Callback cannot be an async Function.
+// To run it only 1st re-render pass 2nd parameter an Empty Array.
+// Or re-render depends on certain states then pass state in 2nd parameter array.
+
+import {useEffect} from react
+
+function App(){
+    useEffect(() => {
+        // Do whatever u Want.
+    },[] or [state1 , state2])
+    return <xmp><h1>Hello</h1></xmp>
+}</code></pre>
+      </li>
+    </ol>
   </body>
 </html>
