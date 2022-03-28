@@ -7,12 +7,13 @@
     <title>React Notes</title>
     <link rel="stylesheet" href="prism.css" />
     <link rel="stylesheet" href="style.css" />
-    <script src="prism.js"></script>
+    <script defer src="prism.js"></script>
+    <script defer src="app.js"></script>
   </head>
   <body>
     <ol>
       <li>
-        <h2>JSX</h2>
+        <h2><span class="serialNumber">ddddddddddd</span> JSX</h2>
         <pre><code class="language-js">//JSX means Javascript XML.
 // It is 96% HTML and Rest Javasript.
 // Javasript Expression are written under { Expression } ( Curly Braces ). 
@@ -29,7 +30,7 @@
       </li>
 
       <li>
-        <h2>React Fragment</h2>
+        <h2><span class="serialNumber"></span> React Fragment</h2>
         <pre><code class="language-js">// We can return only one element from Functional Component.
 // So either we use a div to enclose all code or using React Fragments.
 // React Fragments does not add extra element like div.
@@ -46,9 +47,8 @@
 </></xmp></code></pre>
       </li>
 
-
       <li>
-        <h2>Css Style</h2>
+        <h2><span class="serialNumber"></span> Css Style</h2>
         <pre><code class="language-js">// We can add styles through className or,
 // We can use Javascript Object to add inline styles.
 // Property name must be in PascalCase.
@@ -60,8 +60,10 @@
       </li>
 
       <li>
-        <h2>Components</h2>
-        <pre><code class="language-js">// We can divide our website into small peices called Components.
+        <h2><span class="serialNumber"></span> Components</h2>
+        <pre><code class="language-js">// We can divide our website into small pieces called Components.
+// Component name must be PascalCase as Convention.
+// It is a special Function.
 // We have Class and Functional Components.
 // Component Name must Start with Capital Letter as Convention.
 // We can also pass attributes ( Called Props ) like in HTML.
@@ -80,7 +82,7 @@
       </li>
 
       <li>
-        <h2>Props</h2>
+        <h2><span class="serialNumber"></span> Props</h2>
         <pre><code class="language-js">// Props is like attributes in HTML and parameters in Javascript.
 // It helps to pass data to Components.
 // We can pass anything (functions , state etc ) using props.
@@ -99,7 +101,7 @@
       </li>
 
       <li>
-        <h2>map() and key prop</h2>
+        <h2><span class="serialNumber"></span> map() and key prop</h2>
         <pre><code class="language-js">// When we use .map() method then it is necessary to pass ,
 // key prop ( Exact key ) to the returning element from .map().
 // key is anything unique. 
@@ -112,20 +114,7 @@
       </li>
 
       <li>
-        <h2>map() and key prop</h2>
-        <pre><code class="language-js">// When we use .map() method then it is necessary to pass ,
-// key prop ( Exact key ) to the returning element from .map().
-// key is anything unique. 
-// Keys are essential for React to be able to keep track of each ,
-// element that is being iterated over with the .map() function.
-
-<xmp>myArr.map((elem , index) => {
-    return <h1 key={index}>Hello</h1>
-})</xmp></code></pre>
-      </li>
-
-      <li>
-        <h2>Event Handling</h2>
+        <h2><span class="serialNumber"></span> Event Handling</h2>
         <pre><code class="language-js">// We can attach events on JSX elements only.
 // By adding props ( Like onClick etc ).
 
@@ -149,8 +138,23 @@ function handleClick(){
 </code></pre>
       </li>
 
+
       <li>
-        <h2>useState() Hook and state</h2>
+        <h2><span class="serialNumber"></span>Hooks</h2>
+        <pre><code class="language-js">// Hooks allow function components to have access to state and other React features.
+// Hooks allow us to "hook" into React features such as state and lifecycle methods.
+
+// Rules for Hooks -: 
+    // 1) Always write it inside Component.
+    // 2) Directly import hooks or use using React.hookName.
+    // 3) Don't Call hooks inside loop, nested functions and conditionals.
+
+
+</code></pre>
+      </li>
+
+      <li>
+        <h2><span class="serialNumber"></span> useState() Hook and state</h2>
         <pre><code class="language-js">// state allow u to change certain value in component.
 // When state changes , Components re-renders ( Which makes React Powerful without Page Loads ).
 
@@ -167,13 +171,14 @@ const [count , setCount] = useState(InitialValue) // Or React.useState()
       </li>
 
       <li>
-        <h2>useContext() Hook</h2>
+        <h2><span class="serialNumber"></span> useContext() Hook</h2>
         <pre><code class="language-js">// 1) What is context and why we need it ?
 // Ans - It us used to pass directly to any child in a hieraracly, 
 // without this we need to pass data in order wise and it is so difficuilt like -:
 
-// Parent -> Child1 -> Child2 -> Child3  , We need to pass Data Parent -> Child3 
-// without context we need to passs data to Child1 then Child2 and then Child3
+// Parent -> Child1 -> Child2 -> Child3 , We need to pass Data Parent -> Child3 
+// without context we need to passs data to Child1 then Child2 and then Child3.
+// Passing the props to all middleChild called Prop Drilling.
 
 // To use context we need to perform 3 Steps -:
     // 1) createContext() ( In Parent )
@@ -204,11 +209,14 @@ function Child3(){
         // Here use it and Enjoy.
     )
 }
+
+// In Context API the consumer part is tooo lengthy ,
+// Thats why we use useContext hook in consumers.
 </code></pre>
       </li>
 
       <li>
-        <h2>useEffect Hook</h2>
+        <h2><span class="serialNumber"></span> useEffect Hook</h2>
         <pre><code class="language-js">// It is used to perform extra tasks ( Called Side-Effects ).
 // Side effects means reach into the outside world. Like fetching data from an API ,
 // or working with the DOM.
@@ -228,8 +236,91 @@ function App(){
         // Do whatever u Want.
     },[] or [state1 , state2])
     return <xmp><h1>Hello</h1></xmp>
-}</code></pre>
+}
+
+// Cleanup Function in useEffect -: 
+// If we return a Function from useEffect then is work as Cleanup.
+// It help to clean previous state of useEffect Like -:
+// If we attach resize event on window then we will remove it ,
+// in cleanup function from effecient memory usage.</code></pre>
       </li>
+
+      <li>
+        <h2><span class="serialNumber"></span>Forms</h2>
+        <pre><code class="language-js">// It is bit more complex to handle forms.
+// There are 2 types of forms
+    // 1) Controlled Components
+    // 1) UnControlled Components
+
+// Controlled Components -:
+// Here we need to set value , onChange .
+// To handle Complex ( or More ) inputs ( or Components ) we use name attribute.
+
+// TO save us from many states we use one state with an object.
+const [first, setfirst] = useState({
+    f_name: "",
+    sure: true,
+    job: "employed",
+    color: "",
+});
+
+// Rather than write many functions, we write one function for all inputs.
+function handleOnChange(evt) {
+    // For Checkbox ( type , checked need only for Checkbox ) we need to check here
+    const { name, value, type, checked } = evt.target;
+    setfirst((prev) => {
+        return { ...prev, [name]: type === "checkbox" ? checked : value };
+    });
+}
+<xmp><div>
+    // input and textarea are works Same.( Access value in State)
+    <input type="text" name="f_name" placeholder="Enter First Name" 
+    onChange={handleOnChange} value={first.f_name}/>
+
+    // checkbox makes differ ( Access T/F in State )
+    <input type="checkbox" name="sure" onChange={handleOnChange} checked={first.sure} />
+
+    // radio makes differ ( Access value in State)
+    <input type="radio" name="job" onChange={handleOnChange} id="employed" value="employed" />
+    <label htmlFor="employed">Employed</label>
+    <input type="radio" name="job" onChange={handleOnChange} id="unemployed" value="unemployed" />
+    <label htmlFor="unemployed">Unemployed</label>
+
+    // dropdown makes differ ( Access value in State ).
+    <select name="color" value={first.color} onChange={handleOnChange}>
+        <option value="">--Choose--</option>
+        <option value="green">green</option>
+        <option value="blue">blue</option>
+    </select>
+</div></xmp></code></pre>
+      </li>
+
+      <li>
+        <h2><span class="serialNumber"></span>Conditional Rendering</h2>
+        <pre><code class="language-js">// Using -:
+    // 1) if / else 
+    // 2) Ternary Operator  with states
+    // 3) Short Circuit Operator or with states
+
+// 1) Short Circuit Operator ( && , || ) or with states -:
+
+// Can change state to show - hide Elements.
+const [shown, setShown] = useState(true);
+
+<xmp>{shown && <h1>I am Hidden</h1>}</xmp>
+
+// 2) Ternary Operator or with states -: 
+
+const [shown, setShown] = useState(true);
+
+<xmp>{shown === false ? <h1>I am First</h1> : <h1>I am Second</h1>}</xmp>
+
+// 3) if / else -: 
+// It is not at that important but it work as usually but outside,
+// the component.
+</code></pre>
+      </li>
+      
     </ol>
   </body>
 </html>
